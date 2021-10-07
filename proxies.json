@@ -1,0 +1,23 @@
+﻿{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "Page": {
+      "matchCondition": {
+        "route": "/",
+        "methods": [
+          "GET"
+        ]
+      },
+      "backendUri": "https://quantumdemostorage.blob.core.windows.net/site/template.html"
+    },
+    "JS": {
+      "matchCondition": {
+        "route": "/template.js",
+        "methods": [
+          "GET"
+        ]
+      },
+      "backendUri": "https://quantumdemostorage.blob.core.windows.net/site/template.js"
+    }
+  }
+}
