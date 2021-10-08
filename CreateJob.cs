@@ -10,7 +10,6 @@ using Newtonsoft.Json;
 using Azure.Quantum;
 using Azure.Identity;
 using Azure.Quantum.Jobs;
-using Microsoft.Quantum.Providers.IonQ;
 using Azure.Quantum.Jobs.Models;
 
 namespace demo
@@ -24,25 +23,32 @@ namespace demo
         {
             log.LogInformation($"CreateJob function started {DateTime.Now}");
 
-            var ionq = new Microsoft.Quantum.Providers.IonQ.Targets.IonQQuantumMachine.SubmissionContext();
-
-            //ionq.
-
             var client =
                 new QuantumJobClient(
                     Environment.GetEnvironmentVariable("subId"),
-                    "penguinquantum",
-                    "penguinquantum",
+                    Environment.GetEnvironmentVariable("workspace"),
+                    Environment.GetEnvironmentVariable("workspace"),
                     "eastUS",
                     new DefaultAzureCredential());
 
-            var job = new JobDetails("", "", "", ""); 
 
-            client.CreateJob("", job);
+            var jobId = Guid.NewGuid().ToString().Replace("-", "");
 
-            return null;
-        }
 
-            
+
+            var job = new JobDetails($"{Environment.GetEnvironmentVariable("quantumStorage")}/createnumbers", 
+                "microsoft.ionq-ir.v2", 
+                "IonQ", 
+                Environment.GetEnvironmentVariable("target"));
+            //job.InputParams = "{ 'shots': 50 }"; //https://github.com/Azure/azure-sdk-for-net/issues/24580
+            job.InputDataUri = $"{Environment.GetEnvironmentVariable("quantumStorage")}/createnumbers/inputData";
+
+            job.OutputDataFormat = "microsoft.quantum-results.v1";
+            job.OutputDataUri = $"{Environment.GetEnvironmentVariable("quantumStorage")}/quantum-job-{jobId}/mappingData";
+
+            var response = client.CreateJob(jobId, job);
+
+            return new OkObjectResult(JsonConvert.SerializeObject(response));
+        }    
     }
 }
