@@ -17,20 +17,11 @@ namespace demo
         [FunctionName("UpdatePage")]
         public static async Task Run([TimerTrigger("0 0 0 * * *")]TimerInfo myTimer,
             [Table("numbers")] CloudTable numbers,
+            [Blob("rawfiles/template.html", FileAccess.Read)] string template,
             [Blob("site/template.html", FileAccess.Write)] Stream file,
             ILogger log)
         {
             log.LogInformation($"Page update started at {DateTime.Now}");
-
-            string text = System.IO.File.ReadAllText(@".\page\template.html");
-
-            /*
-             * 1) get unused numbers from storage
-             * 2) add them to the page
-             * 3) write page to storage -DONE
-             * 4) update table with used numbers
-             * 
-             */
 
             var filter = TableQuery.GenerateFilterCondition("State", QueryComparisons.Equal, "new");
 
@@ -44,22 +35,21 @@ namespace demo
                     .Replace(",", "");
                 int value = Convert.ToInt32(number, 2);
 
-                text = text.Replace("{numbers}", value.ToString());
+                template = template.Replace("{numbers}", value.ToString());
 
                 query.State = "completed";
 
                 TableOperation replaceEntity = TableOperation.Replace(query);
-
                 await numbers.ExecuteAsync(replaceEntity);
             }
             else
             {
-                text = text.Replace("{numbers}", $"New values coming soon {DateTime.Now.ToShortTimeString()}");
+                template = template.Replace("{numbers}", $"New values coming soon {DateTime.Now.ToShortTimeString()}");
             }
 
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream);
-            writer.Write(text);
+            writer.Write(template);
             writer.Flush();
             stream.Position = 0;
             stream.CopyTo(file);
