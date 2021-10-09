@@ -1,13 +1,28 @@
 <html>
     <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <title>Quantum Lottery</title>
     </head>
     <body>
-        <h1>Quantum Lottery</h1>
-        <h2>Today's Number Is</h2>
-        <div id="numbers">{numbers}</div>
-
-        <h3>Next Update In</h3>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Quantum Lottery</a>
+            </div>
+        </nav>
+        <div class="container overflow-hidden mt-3">
+            <h1 class="text-center">Today's Number Is</h2>
+            <div class='card border-dark mb-5 text-white bg-secondary tile h2 align-middle card-block'><span class='card-body text-center'>{numbers}</span></div>
+        <h2 class="h4">Next Update In</h3>
         <div id="next"></div>
+    </div>
         <script  src="template.js"></script>    
     </body>
 </html>

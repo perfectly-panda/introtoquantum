@@ -21,7 +21,7 @@ namespace demo
     public static class ProcessData
     {
         [FunctionName("ProcessData")]
-        public static async Task Run([TimerTrigger("0 0 10 * * *")] TimerInfo myTimer,
+        public static async Task Run([TimerTrigger("0 0 */4 * * *")] TimerInfo myTimer,
             [Table("jobs")] CloudTable jobs,
             [Table("numbers")] CloudTable numbers,
             ILogger log)
