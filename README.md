@@ -24,8 +24,11 @@ The Q# sample code used in this repo can be found at github.com/Microsoft/Quantu
 3. Configure the Function App's storage account
 	1. Add two tables 'jobs' and 'numbers'
 	2. Create two containers 'rawfiles' and 'site'
-	3. Into the 'rawfiles' folder, upload the three files in the jobfiles folder and the two files in the page folder
+	3. Into the 'rawfiles' folder, upload the three files in the jobfiles folder and the page/template.html file.
+	4. Add page/template.js to the site container. 
 4. Deploy the function app code.
 
 Before the site will work all three functions will need to run. If you want to do this more quickly, you can target the ionq.simulator and trigger each function in turn from the portal or the management API.
 Alternatively, you can add a row to the numbers table { 'PartitionKey': 1, 'RowKey': temp, 'Numbers': '[0,0,0,0]', 'State': 'new'} and run just the UpdatePage function to generate the template.
+
+Keep in mind that as long as the site is running you will continue to incur costs from the quantum jobs even if the function app is within the consumption plan free grant or on credits. To prevent this without deleting the resources, stop the app or disable the CreateJob function.
