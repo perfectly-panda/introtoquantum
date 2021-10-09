@@ -69,7 +69,7 @@ namespace demo
                     Environment.GetEnvironmentVariable("target"));
                 //job.InputParams = "{ 'shots': 50 }"; //https://github.com/Azure/azure-sdk-for-net/issues/24580
 
-                job.Metadata.Add("entryPointInput", "8");
+                job.Metadata.Add("entryPointInput", "4");
                 job.Metadata.Add("outputMappingBlobUri", $"{Environment.GetEnvironmentVariable("quantumStorage")}/{jobId}/mappingData");
                 job.InputDataUri = $"{Environment.GetEnvironmentVariable("quantumStorage")}/{jobId}/inputData";
 
