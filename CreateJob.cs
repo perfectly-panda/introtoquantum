@@ -45,9 +45,9 @@ namespace demo
                 var client =
                     new QuantumJobClient(
                         Environment.GetEnvironmentVariable("subId"),
+                        Environment.GetEnvironmentVariable("resourceGroup"),
                         Environment.GetEnvironmentVariable("workspace"),
-                        Environment.GetEnvironmentVariable("workspace"),
-                        "eastUS",
+                         Environment.GetEnvironmentVariable("location"),
                         new DefaultAzureCredential());
 
 

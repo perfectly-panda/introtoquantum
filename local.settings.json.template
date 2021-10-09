@@ -5,8 +5,10 @@
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "subId": "",
     "quantumStorage": "",
-    "quantumStorageConn":  "",
+    "quantumStorageConn": "",
     "workspace": "",
+    "resourceGroup": "",
+    "location": "",
     "target": ""
   }
 }
