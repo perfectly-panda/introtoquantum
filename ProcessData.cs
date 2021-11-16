@@ -29,8 +29,8 @@ namespace demo
             var client = new QuantumJobClient(
                 Environment.GetEnvironmentVariable("subId"),
                 Environment.GetEnvironmentVariable("workspace"),
-                Environment.GetEnvironmentVariable("workspace"),
-                "eastUS",
+                Environment.GetEnvironmentVariable("resourceGroup"),
+                Environment.GetEnvironmentVariable("location"),
                 new DefaultAzureCredential());
 
             var filter = TableQuery.GenerateFilterCondition("status", QueryComparisons.Equal, "waiting");

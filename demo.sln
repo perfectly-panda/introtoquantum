@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demo", "demo.csproj", "{14FE12FD-4CD0-48EB-A30F-9E6223EB5FF9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QSharpLibrary", "..\QSharpLibrary\QSharpLibrary.csproj", "{3CD2BCA8-784F-4CC2-B5F1-9F82312956C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSharpApplication1", "..\QSharpApplication1\QSharpApplication1.csproj", "{3EB41B47-3E8B-47EB-B018-4911B5EF56FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{14FE12FD-4CD0-48EB-A30F-9E6223EB5FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14FE12FD-4CD0-48EB-A30F-9E6223EB5FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14FE12FD-4CD0-48EB-A30F-9E6223EB5FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD2BCA8-784F-4CC2-B5F1-9F82312956C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD2BCA8-784F-4CC2-B5F1-9F82312956C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD2BCA8-784F-4CC2-B5F1-9F82312956C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD2BCA8-784F-4CC2-B5F1-9F82312956C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB41B47-3E8B-47EB-B018-4911B5EF56FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB41B47-3E8B-47EB-B018-4911B5EF56FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB41B47-3E8B-47EB-B018-4911B5EF56FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB41B47-3E8B-47EB-B018-4911B5EF56FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
